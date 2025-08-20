@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>סריקת דרכון ומילוי טופס</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="container">
+    <h1>סריקת דרכון -> מילוי אוטומטי</h1>
+
+    <div class="card">
+        <p class="hint">העלה/י תמונה ברורה של הדרכון</p>
+
+        <div class="uploader">
+            <input id="file" type="file" accept="image/*" capture="environment" />
+            <button id="scanBtn" class="btn">סרוק מהתמונה</button>
+        </div>
+
+        <img id="preview" alt="" class="preview" />
+        <div id="status" class="status" aria-live="polite"></div>
+    </div>
+
+    <form class="card grid" id="passportForm">
+        <div class="field">
+            <label for="surname">שם משפחה (EN)</label>
+            <input id="surname" autocomplete="family-name" />
+        </div>
+        <div class="field">
+            <label for="given">שם פרטי (EN)</label>
+            <input id="given" autocomplete="given-name" />
+        </div>
+        <div class="field">
+            <label for="number">מס' דרכון</label>
+            <input id="number" class="ltr" />
+        </div>
+        <div class="field">
+            <label for="nationality">לאום (קוד מדינה, למשל ISR)</label>
+            <input id="nationality" class="ltr" />
+        </div>
+        <div class="field">
+            <label for="birth">תאריך לידה (YYYY-MM-DD)</label>
+            <input id="birth" class="ltr" />
+        </div>
+        <div class="field">
+            <label for="sex">מין</label>
+            <input id="sex" class="ltr" />
+        </div>
+        <div class="field">
+            <label for="expiry">תוקף דרכון (YYYY-MM-DD)</label>
+            <input id="expiry" class="ltr" />
+        </div>
+        <div class="field">
+            <label for="issuing">מדינת הנפקה (קוד, למשל ISR)</label>
+            <input id="issuing" class="ltr" />
+        </div>
+    </form>
+</main>
+
+<!-- רק השורה הבאה השתנתה: שמים את המפתח על window -->
+<script>
+    window.VISION_API_KEY = "AIzaSyDGCQ08laAoNWqFN87Ie_O40N6B1mS7tek";
+</script>
+<script src="app.js"></script>
+</body>
+</html>
